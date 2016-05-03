@@ -1,20 +1,16 @@
 package com.example.benben.cpapa.ui.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.benben.ben_poster_library.PosterLayout;
 import com.example.benben.cpapa.R;
-import com.example.benben.cpapa.ui.adpter.BannerCommonAdapter;
 
-import java.sql.Driver;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,18 +18,20 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
- * Created by Administrator on 2016/5/2.
+ * Created by bneben on 2016/5/2.
  */
 public class FirstFragment extends BaseFragment {
-    @InjectView(R.id.first_viewPager)
-    ViewPager mViewPager;
+
+    @InjectView(R.id.first_posterLayout)
+    PosterLayout mPosterLayout;
+    @InjectView(R.id.first_posterLayout2)
+    PosterLayout mPosterLayout2;
     private View rootView;
 
-    private PageRunHandler mHandler=null;
-    private List<ImageView> mImageView;
-    private int[] mData = {R.mipmap.hehe, R.mipmap.hehe1, R.mipmap.hehe2, R.mipmap.car1, R.mipmap.car};
-    private BannerCommonAdapter mAdapter;
-    private static final int BANNER_CHANG_TIME = 3000;//图片自动滑动的时间
+    private List<Integer> imageViews;
+
+    private int[] mData={R.mipmap.hehe,R.mipmap.hehe1,R.mipmap.hehe2,R.mipmap.hehe1,R.mipmap.hehe2,};
+
 
     @Nullable
     @Override
@@ -48,53 +46,56 @@ public class FirstFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         initView();
+        initData();
+    }
+
+    private void initData() {
+
+
     }
 
     private void initView() {
-        initBannerView();
-        mAdapter = new BannerCommonAdapter(getActivity(), mImageView);
-        mViewPager.setAdapter(mAdapter);
-        mViewPager.setCurrentItem(Integer.MAX_VALUE/2);//设置为最大值的一半
-        startBannerRun();//开启滑动
-    }
-    /**处理页面*/
-      class  PageRunHandler extends Handler{
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case 0:
-                    int indexPosition = mViewPager.getCurrentItem();
-                    mViewPager.setCurrentItem(indexPosition + 1);
-                    break;
-            }
-        }
-    }
-    private void startBannerRun() {
-        new Thread(new Runnable() {
+//        final List<String> urls = new ArrayList<>();
+//        urls.add("http://img4.imgtn.bdimg.com/it/u=2584974889,1768316857&fm=21&gp=0.jpg");
+//        urls.add("http://img04.tooopen.com/images/20131211/sy_51301885361.jpg");
+//        urls.add("http://img04.tooopen.com/images/20121219/tooopen_18092442.jpg");
+//        urls.add("http://pic.3h3.com/up/2012-12/20121249537219310.jpg");
+//        urls.add("http://gb.cri.cn/mmsource/images/2007/07/03/el070703186.jpg");
+//        urls.add("http://gb.cri.cn/mmsource/images/2007/07/03/el070703186.jpg");
+//        urls.add("http://gb.cri.cn/mmsource/images/2007/07/03/el070703186.jpg");
+//
+//        mPosterLayout.setViewUrls(urls);
+
+
+        List<Integer> run = new ArrayList<>();
+        run.add(R.mipmap.hehe);
+        run.add(R.mipmap.hehe1);
+        run.add(R.mipmap.hehe2);
+        run.add(R.mipmap.car);
+        run.add(R.mipmap.car1);
+        mPosterLayout.setViewRes(run);
+
+        /**监听事件*/
+
+        mPosterLayout.setOnBannerItemClickListener(new PosterLayout.OnBannerItemClickListener() {
             @Override
-            public void run() {
-                Log.i("lyx", "mHandeler: "+mHandler);
-                Log.i("lyx", "BANNER_CHANG_TIME: "+BANNER_CHANG_TIME);
-//                mHandler.removeMessages(0);
-                mHandler.sendEmptyMessageDelayed(0, BANNER_CHANG_TIME);
+            public void onItemClick(int position) {
+                Toast.makeText(getActivity(), String.valueOf(position),Toast.LENGTH_SHORT).show();
             }
-        }).start();
+        });
+
+        /**低于三张*/
+        final List<String> urls2 = new ArrayList<>();
+        urls2.add("http://images.ali213.net/picfile/pic/2013/12/07/927_20131207153100256.jpg");
+        urls2.add("http://pic10.nipic.com/20101004/3320946_021726451306_2.jpg");
+        mPosterLayout2.setViewUrls(urls2);
     }
-    /**图片资源*/
-    private void initBannerView() {
-        mImageView = new ArrayList<>();
-        for (int i = 0; i < mData.length; i++) {
-            ImageView view = new ImageView(getActivity());
-            view.setImageResource(mData[i]);
-            mImageView.add(view);
-        }
-    }
+
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.reset(this);
     }
-
 }
