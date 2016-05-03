@@ -3,10 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <include layout="@layout/myactionbar"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="CPAPA"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:background="#000"
+        android:layout_height="56dp" />
     <android.support.v7.widget.RecyclerView
+        android:background="#242424"
         android:layout_width="match_parent"
         android:id="@+id/left_content"
-        android:layout_height="match_parent"/>
+        android:layout_weight="1"
+        android:layout_height="0dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:layout_height="1dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="CPAPA"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:background="#000"
+        android:layout_height="56dp" />
 
 </LinearLayout>

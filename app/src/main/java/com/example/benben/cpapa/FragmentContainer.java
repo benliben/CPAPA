@@ -4,6 +4,9 @@ import android.support.v4.app.Fragment;
 
 import com.example.benben.cpapa.model.LeftTagModel;
 import com.example.benben.cpapa.ui.fragment.FirstFragment;
+import com.example.benben.cpapa.ui.fragment.MusicFragment;
+import com.example.benben.cpapa.ui.fragment.PictureFragment;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +26,9 @@ public class FragmentContainer {
 
             getTagModel = new HashMap<>();
             getTagModel.put(FirstFragment.class.getSimpleName(), createModel("第一项", new FirstFragment()));
+            getTagModel.put(MusicFragment.class.getSimpleName(), createModel("音乐", new MusicFragment()));
+            getTagModel.put(PictureFragment.class.getSimpleName(), createModel("图片", new PictureFragment()));
+
         }
         return getTagModel;
     }

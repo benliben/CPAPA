@@ -1,4 +1,4 @@
-package com.example.benben.cpapa.ui;
+package com.example.benben.cpapa.ui.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;

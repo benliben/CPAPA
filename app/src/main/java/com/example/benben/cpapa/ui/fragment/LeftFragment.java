@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.benben.cpapa.FragmentContainer;
 import com.example.benben.cpapa.R;
 import com.example.benben.cpapa.model.LeftTagModel;
-import com.example.benben.cpapa.ui.MainActivity;
+import com.example.benben.cpapa.ui.activity.MainActivity;
 import com.example.benben.cpapa.ui.adpter.LeftAdapter;
 
 import java.util.ArrayList;
@@ -84,7 +84,12 @@ public class LeftFragment extends BaseFragment {
 
     public List<LeftTagModel> getTagModelFromMap() {
         List<LeftTagModel> list = new ArrayList<>();
+        /**左边*/
         list.add(FragmentContainer.getTagModel().get(FirstFragment.class.getSimpleName()));
+        list.add(FragmentContainer.getTagModel().get(MusicFragment.class.getSimpleName()));
+        list.add(FragmentContainer.getTagModel().get(PictureFragment.class.getSimpleName()));
+
+
         return list;
     }
 }
