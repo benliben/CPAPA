@@ -13,6 +13,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.telecom.Call;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,6 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -223,10 +225,13 @@ public class PosterLayout extends RelativeLayout {
     }
 
 
-    /**添加网络图片路径*/
+    /**
+     * 添加网络图片路径
+     */
     public void setViewUrls(List<String> urls) {
         List<View> views = new ArrayList<>();
         itemCount = urls.size();
+        Log.i("lyx", "urls.size() "+urls.size());
         /**主要是解决当item为小于3个的时候滑动有问题，这里将其拼凑成3个以上*/
         if (itemCount < 1) {//当item个数0
             throw new IllegalStateException("item count not equal zero");
@@ -259,14 +264,23 @@ public class PosterLayout extends RelativeLayout {
             }
         });
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
         if (defaultImage != 0) {
-            Glide.with(getContext()).load(url).placeholder(defaultImage).centerCrop().into(imageView);
-        } else {
-            Glide.with(getContext()).load(url).centerCrop().into(imageView);
+//            Picasso.with(getContext()).load(url).into(imageView);
+            Log.i("lyx", "url: "+url);
+            Picasso.with(getContext()).load(url).resize(50,50).centerCrop().into(imageView);
+        }else {
+            Picasso.with(getContext()).load(url).centerCrop().into(imageView);
         }
+
+//     if (defaultImage != 0) {
+//
+//            Glide.with(getContext()).load(url).placeholder(defaultImage).centerCrop().into(imageView);
+//        } else {
+//            Glide.with(getContext()).load(url).centerCrop().into(imageView);
+//        }
         return imageView;
     }
-
 
 
     /**
