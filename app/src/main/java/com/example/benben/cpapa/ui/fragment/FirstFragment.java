@@ -63,14 +63,13 @@ public class FirstFragment extends BaseFragment {
 
     private void initView() {
         final List<String> urls = new ArrayList<>();
-        urls.add("http://img4.imgtn.bdimg.com/it/u=2584974889,1768316857&fm=21&gp=0.jpg");
+        urls.add("http://fj.heze.cc/attachments/forum/month_0907/20090726_3a990fc8bcb6fa1d3878pAMBPjA75B65.jpg");
         urls.add("http://img04.tooopen.com/images/20131211/sy_51301885361.jpg");
-        urls.add("http://img04.tooopen.com/images/20121219/tooopen_18092442.jpg");
+        urls.add("http://gb.cri.cn/mmsource/images/2007/07/03/el070703186.jpg");
         urls.add("http://pic.3h3.com/up/2012-12/20121249537219310.jpg");
-        urls.add("http://gb.cri.cn/mmsource/images/2007/07/03/el070703186.jpg");
-        urls.add("http://gb.cri.cn/mmsource/images/2007/07/03/el070703186.jpg");
-        urls.add("http://gb.cri.cn/mmsource/images/2007/07/03/el070703186.jpg");
-
+        urls.add("http://hiphotos.baidu.com/xjpgh/pic/item/b1f850314236c62debc4afb7.jpg");
+        urls.add("http://img04.tooopen.com/images/20121219/tooopen_18092442.jpg");
+        urls.add("http://imgsrc.baidu.com/forum/pic/item/dcc451da81cb39dbf3c1c7c4d0160924ab18301a.jpg");
         mPosterLayout.setViewUrls(urls);
 
 
