@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
- * Created by tangjunjie on 2016/5/3.
+ * Created by benben on 2016/5/3.
  */
 public class PictureFragment extends BaseFragment {
     @InjectView(R.id.picture_linearLayout)

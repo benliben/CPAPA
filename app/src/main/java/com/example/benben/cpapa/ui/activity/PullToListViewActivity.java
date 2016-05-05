@@ -16,7 +16,7 @@ import butterknife.InjectView;
 
 
 /**
- * Created by tangjunjie on 2016/5/3.
+ * Created by benben on 2016/5/3.
  */
 public class PullToListViewActivity extends BaseActivity {
     @InjectView(R.id.topLeft)
@@ -42,7 +42,9 @@ public class PullToListViewActivity extends BaseActivity {
     }
 
     private void initView() {
-        Picasso.with(PullToListViewActivity.this).load("http://img04.tooopen.com/images/20131211/sy_51301885361.jpg").into(pullImage);
+        Picasso.with(PullToListViewActivity.this)
+                .load("http://img04.tooopen.com/images/20131211/sy_51301885361.jpg")
+                .into(pullImage);
     }
 
 

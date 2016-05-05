@@ -16,7 +16,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 
 /**
- * Created by tangjunjie on 2016/5/3.
+ * Created by benben on 2016/5/3.
  */
 public class MusicFragment extends BaseFragment {
     @InjectView(R.id.music_listView)
