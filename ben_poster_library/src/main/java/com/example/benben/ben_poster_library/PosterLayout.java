@@ -2,6 +2,7 @@ package com.example.benben.ben_poster_library;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
@@ -26,6 +27,7 @@ import android.widget.Scroller;
 
 import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -268,19 +270,18 @@ public class PosterLayout extends RelativeLayout {
         if (defaultImage != 0) {
 //            Picasso.with(getContext()).load(url).into(imageView);
             Log.i("lyx", "url: "+url);
-            Picasso.with(getContext()).load(url).resize(50,50).centerCrop().into(imageView);
+            Picasso.with(getContext())
+                    .load(url)
+                    .centerCrop()
+                    .resize(1024,680)
+                    .into(imageView);
         }else {
             Picasso.with(getContext()).load(url).centerCrop().into(imageView);
         }
-
-//     if (defaultImage != 0) {
-//
-//            Glide.with(getContext()).load(url).placeholder(defaultImage).centerCrop().into(imageView);
-//        } else {
-//            Glide.with(getContext()).load(url).centerCrop().into(imageView);
-//        }
         return imageView;
     }
+
+
 
 
     /**
@@ -495,6 +496,28 @@ public class PosterLayout extends RelativeLayout {
             // Ignore received duration, use fixed one instead
             super.startScroll(startX, startY, dx, dy, mDuration);
         }
+    }
+
+    /**自定义图片的转换*/
+    public class CropSquareTransformation implements Transformation{
+
+        @Override
+        public Bitmap transform(Bitmap source) {
+            int size = Math.min(source.getWidth(), source.getHeight());
+            int x=(source.getWidth()-size)/2;
+            int y=(source.getHeight()-size)/2;
+            Bitmap result = Bitmap.createBitmap(source, x, y, size, size);
+            if (result != source) {
+                source.recycle();
+            }
+            return result;
+        }
+
+        @Override
+        public String key() {
+            return "square()";
+        }
+
     }
 
 }
