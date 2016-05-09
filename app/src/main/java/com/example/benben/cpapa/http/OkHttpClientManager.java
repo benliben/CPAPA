@@ -87,6 +87,9 @@ public class OkHttpClientManager  {
 
     }
 
+
+
+
     private void deliveryResult(final CarrierMessagingService.ResultCallback callback, Request request) {
     }
 

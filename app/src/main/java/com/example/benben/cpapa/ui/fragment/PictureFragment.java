@@ -22,7 +22,7 @@ public class PictureFragment extends BaseFragment {
     LinearLayout mLinearLayout;
     private View rootView;
     
-    private int [] mImgids={R.mipmap.hehe,R.mipmap.hehe1,R.mipmap.hehe2,R.mipmap.car,R.mipmap.car1,};
+    private int [] mImgids={R.mipmap.hehe,R.mipmap.hehe1,R.mipmap.hehe2,R.mipmap.car,R.mipmap.car1};
     private LayoutInflater mInflater;
 
     @Nullable

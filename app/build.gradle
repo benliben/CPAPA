@@ -32,4 +32,5 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.9.0+'
     compile project(':ben_poster_library')
     compile 'com.google.code.gson:gson:2.2.4'
+    compile project(':viewpage_library_ben')
 }

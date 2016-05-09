@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/CPAPA.iml" filepath="$PROJECT_DIR$/CPAPA.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ben_poster_library/ben_poster_library.iml" filepath="$PROJECT_DIR$/ben_poster_library/ben_poster_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpage_library_ben/viewpage_library_ben.iml" filepath="$PROJECT_DIR$/viewpage_library_ben/viewpage_library_ben.iml" />
     </modules>
   </component>
 </project>

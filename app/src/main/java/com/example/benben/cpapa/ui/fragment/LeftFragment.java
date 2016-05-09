@@ -30,7 +30,7 @@ public class LeftFragment extends BaseFragment {
     private View rootView;
     private List<LeftTagModel> mModels;
     private LeftAdapter mAdapter;
-    private String[] mData = {"a", "b", "c"};
+    private String[] mData = {"a", "b", "c","d"};
 
     @Nullable
     @Override
@@ -88,6 +88,7 @@ public class LeftFragment extends BaseFragment {
         list.add(FragmentContainer.getTagModel().get(FirstFragment.class.getSimpleName()));
         list.add(FragmentContainer.getTagModel().get(MusicFragment.class.getSimpleName()));
         list.add(FragmentContainer.getTagModel().get(PictureFragment.class.getSimpleName()));
+        list.add(FragmentContainer.getTagModel().get(FourthlyFragment.class.getSimpleName()));
 
 
         return list;
