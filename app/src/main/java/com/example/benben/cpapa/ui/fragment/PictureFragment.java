@@ -23,7 +23,7 @@ public class PictureFragment extends BaseFragment {
     private View rootView;
     
     private int [] mImgids={R.mipmap.hehe,R.mipmap.hehe1,R.mipmap.hehe2,R.mipmap.car,R.mipmap.car1};
-    private LayoutInflater mInflater;
+
 
     @Nullable
     @Override
@@ -38,13 +38,16 @@ public class PictureFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        initData();
         initView();
+    }
+
+    private void initData() {
     }
 
     private void initView() {
         for (int i = 0; i < mImgids.length; i++) {
-            mInflater = LayoutInflater.from(getActivity());
+         LayoutInflater   mInflater = LayoutInflater.from(getActivity());
             View view = mInflater.inflate(R.layout.item_picure, mLinearLayout, false);
             ImageView img = (ImageView) view.findViewById(R.id.item_picture_image);
             img.setImageResource(mImgids[i]);

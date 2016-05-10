@@ -35,8 +35,7 @@ public class RithtFragment extends BaseFragment {
     RecyclerView mRecyclerView;
     private View rootView;
 
-    private List<LeftTagModel> mModel;
-    private LeftAdapter mAdapter;
+
     private String [] mData={"1","2","3","4"};
 
     @Nullable
@@ -60,7 +59,7 @@ public class RithtFragment extends BaseFragment {
         mCollapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);//没有收缩的时候
         mCollapsingToolbarLayout.setCollapsedTitleGravity(Color.GREEN);//收缩后
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mAdapter = new LeftAdapter(mData);
+        LeftAdapter  mAdapter = new LeftAdapter(mData);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setItemClickListener(new LeftAdapter.OnItemClickListener() {
             @Override
@@ -77,7 +76,7 @@ public class RithtFragment extends BaseFragment {
     }
 
     private void initData() {
-        mModel = new ArrayList<>();
+        List<LeftTagModel>   mModel = new ArrayList<>();
         for (int i = 0; i < mData.length; i++) {
             LeftTagModel model = new LeftTagModel();
             model.setName(mData[i]);

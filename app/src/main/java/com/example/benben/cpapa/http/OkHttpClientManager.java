@@ -22,15 +22,13 @@ import java.net.CookiePolicy;
 public class OkHttpClientManager  {
     private static OkHttpClientManager mInstance;
     private OkHttpClient mOkHttpClient;
-    private Handler mDelivery;
-    private Gson mGson;
 
     private OkHttpClientManager( ) {
         mOkHttpClient=new OkHttpClient();
         //cookie enabled
         mOkHttpClient.setCookieHandler(new CookieManager(null, CookiePolicy.ACCEPT_ORIGINAL_SERVER));
-        mDelivery = new Handler(Looper.getMainLooper());
-        mGson = new Gson();
+        Handler mDelivery = new Handler(Looper.getMainLooper());
+        Gson mGson = new Gson();
     }
 
     public static OkHttpClientManager getInstance() {
@@ -56,8 +54,7 @@ public class OkHttpClientManager  {
                 .url(url)
                 .build();
         Call call = mOkHttpClient.newCall(request);
-        Response execute = call.execute();
-        return execute;
+        return call.execute();
     }
 
     /**

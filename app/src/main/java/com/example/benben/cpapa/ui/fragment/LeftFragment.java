@@ -30,7 +30,7 @@ public class LeftFragment extends BaseFragment {
     private View rootView;
     private List<LeftTagModel> mModels;
     private LeftAdapter mAdapter;
-    private String[] mData = {"a", "b", "c","d"};
+    private String[] mData = {"广告滑动页面", "b", "c","d"};
 
     @Nullable
     @Override

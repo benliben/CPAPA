@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
    <com.example.benben.ben_poster_library.PosterLayout
        android:id="@+id/first_posterLayout"
-       app:autoPlayDuration="5000"
+       app:autoPlayDuration="3000"
        app:indicatorMargin="10dp"
        app:indicatorPosition="rightBottom"
        app:indicatorShape="rect"
@@ -34,7 +34,7 @@
        android:layout_width="match_parent"
        android:layout_height="200dp"
       android:id="@+id/first_posterLayout2"
-       app:autoPlayDuration="5000"
+       app:autoPlayDuration="4000"
        app:indicatorMargin="10dp"
        app:indicatorPosition="centerBottom"
        app:indicatorShape="oval"

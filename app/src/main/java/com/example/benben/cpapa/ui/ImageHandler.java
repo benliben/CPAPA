@@ -35,11 +35,11 @@ public class ImageHandler extends Handler {
     protected static final long MSG_DELAY = 3000;
 
     //使用弱引用避免Handler泄露.这里的泛型参数可以不是Activity，也可以是Fragment等
-    private WeakReference<FirstFragment> weakReference;
+//    private WeakReference<FirstFragment> weakReference;
     private int currentItem = 0;
 
     protected ImageHandler(WeakReference<FirstFragment> wk){
-        weakReference = wk;
+        WeakReference<FirstFragment> weakReference = wk;
     }
 
 //    @Override

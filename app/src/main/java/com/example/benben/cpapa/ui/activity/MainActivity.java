@@ -5,11 +5,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.benben.ben_poster_library.PosterLayout;
 import com.example.benben.cpapa.R;
 import com.example.benben.cpapa.model.LeftTagModel;
 import com.example.benben.cpapa.ui.fragment.LeftFragment;
@@ -53,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.main_left,new LeftFragment());
         transaction.replace(R.id.main_right, new RithtFragment());
         transaction.commit();
+        Log.i("lyx", "haha: ");
+        PosterLayout posterLayout = new PosterLayout(MainActivity.this);
+        posterLayout.stopAutoPlay();
     }
 
     @OnClick({R.id.topLeft, R.id.topRight})

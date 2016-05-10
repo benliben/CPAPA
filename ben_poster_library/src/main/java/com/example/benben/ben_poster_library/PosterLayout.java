@@ -63,7 +63,7 @@ public class PosterLayout extends RelativeLayout {
     private int unSelectedIndicatorWidth = 6;
 
     private Position indicatorPosition = Position.centerBottom;
-    private int autoPlayDuration = 4000;
+    private int autoPlayDuration = 3000;
     private int scrollDuration = 900;
 
     private int indicatorSpace = 3;
@@ -207,6 +207,7 @@ public class PosterLayout extends RelativeLayout {
         setViews(views);
     }
 
+    /**添加监听事件*/
     private View getImageView(Integer integer, final int i) {
         ImageView imageView = new ImageView(getContext());
         imageView.setOnClickListener(new OnClickListener() {
@@ -254,6 +255,7 @@ public class PosterLayout extends RelativeLayout {
         setViews(views);
     }
 
+    /**得到ImageView*/
     @NonNull
     private ImageView getImageView(String url, final int position) {
         ImageView imageView = new ImageView(getContext());
@@ -268,15 +270,16 @@ public class PosterLayout extends RelativeLayout {
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         if (defaultImage != 0) {
-//            Picasso.with(getContext()).load(url).into(imageView);
-            Log.i("lyx", "url: "+url);
-            Picasso.with(getContext())
+            Glide.with(getContext())
                     .load(url)
+                    .placeholder(defaultImage)
                     .centerCrop()
-                    .resize(1024,680)
                     .into(imageView);
         }else {
-            Picasso.with(getContext()).load(url).centerCrop().into(imageView);
+            Glide.with(getContext())
+                    .load(url)
+                    .centerCrop()
+                    .into(imageView);
         }
         return imageView;
     }
@@ -298,9 +301,14 @@ public class PosterLayout extends RelativeLayout {
         indicatorContainer.setGravity(Gravity.CENTER_VERTICAL);
         RelativeLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
+
+        /**位置指示器*/
         switch (indicatorPosition) {
+            /**如果是中心的底部*/
             case centerBottom:
+                /**水平居中*/
                 params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                /**跟父控件底部排列成一行*/
                 params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
                 break;
             case centerTop:
@@ -338,10 +346,11 @@ public class PosterLayout extends RelativeLayout {
         }
         LoopPagerAdapter pagerAdapter = new LoopPagerAdapter(views);
         pager.setAdapter(pagerAdapter);
+
+
         /**设置当前item到Integer.MAX_VALUE中间的一个值，看起来像无论是往前滑还是往后滑都是ok的
          * 如果不设置，用户往左边滑动的时候已经划不动了
          */
-
         int targetItemPosition = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % itemCount;
         pager.setCurrentItem(targetItemPosition);
         switchIndicator(targetItemPosition % itemCount);
@@ -355,6 +364,8 @@ public class PosterLayout extends RelativeLayout {
 
     }
 
+
+    /**设置滑块改变的时间*/
     public void setSliderTransformDuration(int duration) {
         try {
             Field mScroller = ViewPager.class.getDeclaredField("mScroller");
@@ -481,7 +492,7 @@ public class PosterLayout extends RelativeLayout {
         }
 
         public FixedSpeedScroller(Context context, Interpolator interpolator, int duration) {
-            this(context, interpolator);
+            this(context, null);
             mDuration = duration;
         }
 

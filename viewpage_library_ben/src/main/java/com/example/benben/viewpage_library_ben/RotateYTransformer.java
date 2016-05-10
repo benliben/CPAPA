@@ -19,7 +19,7 @@ public class RotateYTransformer extends BasePageTransformer {
 
     public RotateYTransformer(float maxRotate)
     {
-        this(maxRotate, NonPageTransformer.INSTANCE);
+        this((float) 45, NonPageTransformer.INSTANCE);
     }
 
     public RotateYTransformer( ViewPager.PageTransformer pageTransformer)

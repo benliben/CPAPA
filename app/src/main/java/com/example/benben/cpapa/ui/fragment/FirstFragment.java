@@ -2,6 +2,7 @@ package com.example.benben.cpapa.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import butterknife.InjectView;
 
 /**
  * Created by bneben on 2016/5/2.
+ * 广告滑动页面
  */
 public class FirstFragment extends BaseFragment {
 
@@ -90,6 +92,13 @@ public class FirstFragment extends BaseFragment {
             }
         });
 
+        mPosterLayout2.setOnBannerItemClickListener(new PosterLayout.OnBannerItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Toast.makeText(getActivity(), String.valueOf(position),Toast.LENGTH_SHORT).show();
+            }
+        });
+
         /**低于三张*/
         final List<String> urls2 = new ArrayList<>();
         urls2.add("http://images.ali213.net/picfile/pic/2013/12/07/927_20131207153100256.jpg");
@@ -103,5 +112,21 @@ public class FirstFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.reset(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i("lyx", "暂停了: ");
+        PosterLayout posterLayout = new PosterLayout(getActivity());
+        posterLayout.stopAutoPlay();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.i("lyx", "停止了: ");
+        PosterLayout posterLayout = new PosterLayout(getActivity());
+        posterLayout.stopAutoPlay();
     }
 }

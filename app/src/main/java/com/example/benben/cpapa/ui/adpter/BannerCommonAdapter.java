@@ -15,11 +15,10 @@ import java.util.List;
  * 通用广告栏Adapter
  */
 public class BannerCommonAdapter extends PagerAdapter {
-    private Context context;
     private List<ImageView> mImageView;
 
     public BannerCommonAdapter(Context context, List<ImageView> mImageView) {
-        this.context = context;
+        Context context1 = context;
         this.mImageView = mImageView;
     }
 

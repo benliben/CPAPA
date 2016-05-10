@@ -135,8 +135,6 @@ public class FourthlyFragment extends BaseFragment {
             mContent.setPageTransformer(true, new RotateDownPageTransformer(new AlphaPageTransformer(new ScaleInTransformer())));
         }
 
-
-
         return true;
     }
 }
