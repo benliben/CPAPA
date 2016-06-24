@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.benben.cpapa.R;
 import com.example.benben.cpapa.model.LeftTagModel;
-import com.example.benben.cpapa.http.OkHttpClientManager;
+import com.example.benben.cpapa.broadcast.BroadcastTestActivity;
 import com.example.benben.cpapa.ui.activity.PullToListViewActivity;
 import com.example.benben.cpapa.ui.adpter.LeftAdapter;
 
@@ -69,6 +69,7 @@ public class RithtFragment extends BaseFragment {
                         PullToListViewActivity.startPullToListViewActivity(getActivity());
                         break;
                     case 1:
+                        BroadcastTestActivity.startBroadcastTestActivity(getActivity());
                         break;
                 }
             }

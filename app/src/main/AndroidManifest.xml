@@ -19,6 +19,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.PullToListViewActivity"></activity>
+        <!--广播-->
+        <activity android:name=".broadcast.BroadcastTestActivity"></activity>
+
+
+
+
+
+
+        <!--注册广播-->
+        <receiver android:name=".broadcast.AnotherBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.example.benben.firstline.MY_BROASCAST"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -55,13 +55,8 @@ public class FirstFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView();
-        initData();
     }
 
-    private void initData() {
-
-
-    }
 
     private void initView() {
         final List<String> urls = new ArrayList<>();
